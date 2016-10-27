@@ -70,5 +70,13 @@ bagof(fixme('fails because of ^ meta arg spec is not supported')) :-
     bagof(X, (member(Y, [1,2]), X is 2 * succ(Y, ~)), [4, 6]).
 
 
+maplist_example :- maplist([X, Y]>>append(X, append([a], [b], ~), Y),
+                           [[c], [d]],
+                           [[c, a, b],
+                            [d, a, b]]).
+
+
+
+
 
 
