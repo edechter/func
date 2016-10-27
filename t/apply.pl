@@ -45,6 +45,12 @@ tilde_with_unqual_module :-
     use_module(here(resources/foo)), %% see dummy file resources/foo.pl
     foo:bar(a). 
 
+tilde_in_meta_predicate(
+    todo('bug: function expantion occurs outside meta_predicate scope')
+) :-
+    findall(X, (Y = 1, X = succ(Y, ~)), Xs),
+    Xs == [2].
+
 dicts :-
     John = person{ name: "John", age: 27 },
     "John" == John $ name,
