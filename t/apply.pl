@@ -57,3 +57,18 @@ dicts :-
 'dict missing a key'(fail) :-
     Point = point{x:2, y:3},
     writeln(Point $ z).  % looking up z fails
+
+
+%% meta calls
+succ(succ(call(succ, succ(1, ~), ~), ~), 5).
+
+append(append([a], [b], ~), [c], [a,b,c]).
+
+findall(X, (member(Y, [1,2]), X is 2 * succ(Y, ~)), [4, 6]).
+
+bagof(fixme('fails because of ^ meta arg spec is not supported')) :-
+    bagof(X, (member(Y, [1,2]), X is 2 * succ(Y, ~)), [4, 6]).
+
+
+
+
